@@ -7,7 +7,26 @@
 //
 
 import UIKit
+enum Key:String {
+    case data = "data"
 
-class structClass: Class {
-
+}
+public class structClass: NSObject, Codable {//NSCoding {
+   
+    let data: GuardianOpenPlatformData
+    
+    init(data: GuardianOpenPlatformData) {
+        
+        self.data = data
+        
+    }
+    
+//    public func encode(with aCoder: NSCoder) {
+//        aCoder.encode(self.data, forKey: "data")
+//    }
+//
+//    public required convenience init?(coder aDecoder: NSCoder) {
+//        let data = aDecoder.decodeObject(forKey: Key.data.rawValue) as! GuardianOpenPlatformData
+//        self.init(data: data)
+//    }
 }

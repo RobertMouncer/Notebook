@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class NotesViewController: UIViewController {
+class AddNotesViewController: UIViewController {
     
     @IBOutlet weak var notesTV: UITextView!
     @IBOutlet weak var titleTF: UITextField!

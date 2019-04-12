@@ -8,7 +8,7 @@
 
 import UIKit
 
-class test: UITableView {
+class filtersTableView: UITableView {
 
     /*
     // Only override draw() if you perform custom drawing.

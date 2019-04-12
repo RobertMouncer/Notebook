@@ -9,7 +9,13 @@
 import UIKit
 
 class NotesDetailsTableViewController: UITableViewController {
-
+    
+    var notesItem: Notes?
+    var articleResult: GuardianOpenPlatformResult!
+    @IBOutlet weak var titleTextView: UITextView!
+    
+    @IBOutlet weak var notesTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,30 +24,48 @@ class NotesDetailsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        titleTextView.text = notesItem?.title
+        notesTextView.text = notesItem?.notes
     }
-
+    
+    override func viewDidLayoutSubviews() {
+        titleTextView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+        notesTextView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return notesItem?.articles?.count ?? 0
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath)
 
-        // Configure the cell...
+        cell.textLabel?.text = (notesItem?.articles?.object(at: indexPath.row) as! Article).webTitle ?? "Unknown"
 
         return cell
     }
-    */
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if let view = segue.destination as? SingleArticleTableViewController,
+            let indexPath = tableView.indexPathForSelectedRow {
+            let articleToPass = (notesItem?.articles?.object(at: indexPath.row) as! Article)
+            view.singleArticle = articleToPass
+                       
+            
+        }
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

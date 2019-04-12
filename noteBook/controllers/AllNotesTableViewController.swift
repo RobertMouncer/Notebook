@@ -6,6 +6,10 @@
 //  Copyright © 2019 rdm10. All rights reserved.
 //
 
+
+
+
+
 import UIKit
 import CoreData
 
@@ -25,7 +29,7 @@ class AllNotesTableViewController: UITableViewController {
         managedContext = delegate.persistentContainer.viewContext
         //from gitlab. Author - Neil Taylor
         let fetchRequest = NSFetchRequest<Notes>(entityName: "Notes")
-        
+
         let sortDescriptor = NSSortDescriptor(key: "title", ascending: true, selector: #selector(NSString.localizedCompare(_:)))
         fetchRequest.sortDescriptors = [sortDescriptor]
         
@@ -63,14 +67,26 @@ class AllNotesTableViewController: UITableViewController {
         cell.detailTextLabel?.text = note?.notes ?? "Unknown"
         return cell
     }
+    
     // this is needed to refresh the view
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewDidLoad()
     }
     
-    
-    
+//    func deleteNotes(){
+//        let fetchRequest: NSFetchRequest<Notes> = Notes.fetchRequest()
+//        let objects = try! managedContext?.fetch(fetchRequest)
+//        for obj in objects! {
+//            managedContext?.delete(obj)
+//        }
+//
+//        do {
+//            try managedContext?.save() // <- remember to put this :)
+//        } catch {
+//        // Do something... fatalerror
+//        }
+//    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -111,9 +127,9 @@ class AllNotesTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let view = segue.destination as? SpeakerDetailTableViewController,
+        if let view = segue.destination as? NotesDetailsTableViewController,
             let indexPath = tableView.indexPathForSelectedRow {
-            view.speakerItem = fetchedResultsController?.object(at: indexPath)
+            view.notesItem = fetchedResultsController?.object(at: indexPath)
         }
     }
     

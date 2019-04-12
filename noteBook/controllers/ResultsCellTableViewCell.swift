@@ -9,7 +9,10 @@
 import UIKit
 
 class ResultsCellTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var Title: UILabel!
+    @IBOutlet weak var subtitle: UILabel!
+    @IBOutlet weak var cached: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

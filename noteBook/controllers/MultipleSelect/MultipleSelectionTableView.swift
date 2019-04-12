@@ -10,9 +10,10 @@ import UIKit
 
 // This class will display a TableView and manage the display of a list of items. The
 // selection logic will allow multiple items to be selected.
-class MultipleSelectionTableViewController: SelectionDoneCancelViewController, UITableViewDelegate, UITableViewDataSource {
+class MultipleSelectionTableView: SelectionDoneCancelViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
+       
         super.viewDidLoad()
     }
     
@@ -28,13 +29,14 @@ class MultipleSelectionTableViewController: SelectionDoneCancelViewController, U
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return items.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        
+        print(items.count)
         cell.textLabel!.text = items[indexPath.row].data
         if items[indexPath.row].selected {
             cell.accessoryType = .checkmark

@@ -7,12 +7,23 @@
 //
 
 import UIKit
-
+import CoreData
 class ReturnedArticlesTableViewController: UITableViewController {
 
+    var data:GuardianOpenPlatformData!
+    var managedContext: NSManagedObjectContext?
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        process(data: self.data)
+        
+        guard let delegate = UIApplication.shared.delegate as? AppDelegate else {
+            print("error - unable to access failure")
+            exit(EXIT_FAILURE)
+        }
+        
+        managedContext = delegate.persistentContainer.viewContext
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -20,27 +31,51 @@ class ReturnedArticlesTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    func process(data: GuardianOpenPlatformData) {
+        var textToDisplay = ""
+        
+        textToDisplay += "Page: \(data.response.currentPage ?? 0) of \(data.response.pages ?? 0)\n"
+        
+        if let results = data.response.results {
+            textToDisplay += "Found \(results.count) results\n"
+            results.forEach({ (result) in
+                
+                textToDisplay += result.webTitle
+                if let url = result.webUrl {
+                    textToDisplay += "\t\(url)\n"
+                }
+            })
+        }
+        
+        
+    }
+
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return data.response.results?.count ?? 0
     }
 
-    /*
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "articleCell", for: indexPath) as! ResultsCellTableViewCell
+        cell.Title.text = data.response.results?[indexPath.row].webTitle
+        let url = (data.response.results?[indexPath.row].webUrl)?.absoluteString
+        cell.subtitle.text = url
+//        cell.Url =
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -77,14 +112,38 @@ class ReturnedArticlesTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if let view = segue.destination as? SingleArticleTableViewController,
+            let indexPath = tableView.indexPathForSelectedRow {
+            let art = data.response.results?[indexPath.row]
+            view.articleResult = art
+            
+            let singArt = Article(context: managedContext!)
+            
+            singArt.webTitle = art?.webTitle
+            singArt.webUrl = (art?.webUrl)?.absoluteString
+            
+            singArt.shortUrl = (art?.fields?.shortUrl)?.absoluteString
+            singArt.trailText = art?.fields?.trailText
+            singArt.lastModified = art?.fields?.lastModified
+            print("\(art?.fields?.wordcount)")
+            print("\(data.response.results?[indexPath.row].fields?.wordcount)")
+            if ((art?.fields?.wordcount) != nil) {
+                let x = Int((art?.fields?.wordcount)!)
+                singArt.wordCount = (Int32(x))
+            }
+
+            singArt.bodyText = art?.fields?.bodyText
+            
+            view.singleArticle = singArt
+        }
     }
-    */
+    
 
 }

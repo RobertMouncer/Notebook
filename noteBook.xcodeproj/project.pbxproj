@@ -7,14 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D30B3F422590D540029ECE2 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D30B3F322590D540029ECE2 /* AddNoteViewController.swift */; };
+		6D30B3F622591CDE0029ECE2 /* AllNotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D30B3F522591CDE0029ECE2 /* AllNotesTableViewController.swift */; };
+		6D35182A225F6737004098D8 /* Pinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D351829225F6737004098D8 /* Pinger.swift */; };
+		6D726257225B8A95003137BA /* GuardianSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D726256225B8A95003137BA /* GuardianSearchController.swift */; };
+		6D72625A225B8B98003137BA /* GuardianContentClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D726258225B8B98003137BA /* GuardianContentClient.swift */; };
+		6D72625B225B8B98003137BA /* GuardianContentDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D726259225B8B98003137BA /* GuardianContentDataTypes.swift */; };
+		6D726263225BB934003137BA /* ReturnedArticlesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D726262225BB934003137BA /* ReturnedArticlesTableViewController.swift */; };
+		6D8385A7225D03D200BC9FBF /* ResultsCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8385A6225D03D200BC9FBF /* ResultsCellTableViewCell.swift */; };
+		6D8385AB225D223E00BC9FBF /* SingleArticleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8385AA225D223E00BC9FBF /* SingleArticleTableViewController.swift */; };
+		6D9FB793225E17E300E94199 /* KeyedDecodingContainer+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9FB792225E17E300E94199 /* KeyedDecodingContainer+extension.swift */; };
+		6D9FB795225E381E00E94199 /* SingleArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9FB794225E381E00E94199 /* SingleArticleTableViewCell.swift */; };
+		6D9FB797225E4A9500E94199 /* RecentSearchesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9FB796225E4A9500E94199 /* RecentSearchesTableViewController.swift */; };
+		6D9FB79B225E58F100E94199 /* noteBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D9FB799225E58F100E94199 /* noteBook.xcdatamodeld */; };
+		6D9FB79D225E6BF800E94199 /* structClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9FB79C225E6BF800E94199 /* structClass.swift */; };
 		6DA437782258F9FD003F8C8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA437772258F9FD003F8C8F /* AppDelegate.swift */; };
-		6DA4377A2258F9FD003F8C8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA437792258F9FD003F8C8F /* ViewController.swift */; };
 		6DA4377D2258F9FD003F8C8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DA4377B2258F9FD003F8C8F /* Main.storyboard */; };
-		6DA437802258F9FD003F8C8F /* noteBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6DA4377E2258F9FD003F8C8F /* noteBook.xcdatamodeld */; };
 		6DA437822258F9FE003F8C8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DA437812258F9FE003F8C8F /* Assets.xcassets */; };
 		6DA437852258F9FE003F8C8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DA437832258F9FE003F8C8F /* LaunchScreen.storyboard */; };
 		6DA437902258F9FE003F8C8F /* noteBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA4378F2258F9FE003F8C8F /* noteBookTests.swift */; };
 		6DA4379B2258F9FE003F8C8F /* noteBookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA4379A2258F9FE003F8C8F /* noteBookUITests.swift */; };
+		6DA7DCEA225A406B00683559 /* NotesDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA7DCE9225A406B00683559 /* NotesDetailsTableViewController.swift */; };
+		6DF1C3632260D1F1007829F9 /* DataChangedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF1C3622260D1F1007829F9 /* DataChangedDelegate.swift */; };
+		6DF1C3652260D245007829F9 /* SelectionDoneCancelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF1C3642260D245007829F9 /* SelectionDoneCancelViewController.swift */; };
+		6DF1C3672260D276007829F9 /* SelectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF1C3662260D276007829F9 /* SelectionItem.swift */; };
+		6DF1C3712260E420007829F9 /* MViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF1C3702260E420007829F9 /* MViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,12 +51,36 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		6D351879225FB01B004098D8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		6D30B3F322590D540029ECE2 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
+		6D30B3F522591CDE0029ECE2 /* AllNotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNotesTableViewController.swift; sourceTree = "<group>"; };
+		6D351829225F6737004098D8 /* Pinger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pinger.swift; sourceTree = "<group>"; };
+		6D726256225B8A95003137BA /* GuardianSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuardianSearchController.swift; sourceTree = "<group>"; };
+		6D726258225B8B98003137BA /* GuardianContentClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GuardianContentClient.swift; path = "../../../../Downloads/gdn-open-platform-api-master-0f6539d997eb997e5b85bf4d63594638e8ef4f1b/GuardianOpenPlatformExample/GuardianContentClient.swift"; sourceTree = "<group>"; };
+		6D726259225B8B98003137BA /* GuardianContentDataTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GuardianContentDataTypes.swift; path = "../../../../Downloads/gdn-open-platform-api-master-0f6539d997eb997e5b85bf4d63594638e8ef4f1b/GuardianOpenPlatformExample/GuardianContentDataTypes.swift"; sourceTree = "<group>"; };
+		6D726262225BB934003137BA /* ReturnedArticlesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnedArticlesTableViewController.swift; sourceTree = "<group>"; };
+		6D8385A6225D03D200BC9FBF /* ResultsCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsCellTableViewCell.swift; sourceTree = "<group>"; };
+		6D8385AA225D223E00BC9FBF /* SingleArticleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleArticleTableViewController.swift; sourceTree = "<group>"; };
+		6D9FB792225E17E300E94199 /* KeyedDecodingContainer+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "KeyedDecodingContainer+extension.swift"; path = "../../../../Downloads/gdn-open-platform-api-master-24f94311e801b61c1139fe598c284d5f20073930/GuardianOpenPlatformExample/KeyedDecodingContainer+extension.swift"; sourceTree = "<group>"; };
+		6D9FB794225E381E00E94199 /* SingleArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleArticleTableViewCell.swift; sourceTree = "<group>"; };
+		6D9FB796225E4A9500E94199 /* RecentSearchesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchesTableViewController.swift; sourceTree = "<group>"; };
+		6D9FB79A225E58F100E94199 /* noteBook.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = noteBook.xcdatamodel; sourceTree = "<group>"; };
+		6D9FB79C225E6BF800E94199 /* structClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = structClass.swift; sourceTree = "<group>"; };
 		6DA437742258F9FD003F8C8F /* noteBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = noteBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DA437772258F9FD003F8C8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6DA437792258F9FD003F8C8F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6DA4377C2258F9FD003F8C8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		6DA4377F2258F9FD003F8C8F /* noteBook.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = noteBook.xcdatamodel; sourceTree = "<group>"; };
 		6DA437812258F9FE003F8C8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6DA437842258F9FE003F8C8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6DA437862258F9FE003F8C8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +90,11 @@
 		6DA437962258F9FE003F8C8F /* noteBookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = noteBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DA4379A2258F9FE003F8C8F /* noteBookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = noteBookUITests.swift; sourceTree = "<group>"; };
 		6DA4379C2258F9FE003F8C8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6DA7DCE9225A406B00683559 /* NotesDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesDetailsTableViewController.swift; sourceTree = "<group>"; };
+		6DF1C3622260D1F1007829F9 /* DataChangedDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataChangedDelegate.swift; sourceTree = "<group>"; };
+		6DF1C3642260D245007829F9 /* SelectionDoneCancelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionDoneCancelViewController.swift; sourceTree = "<group>"; };
+		6DF1C3662260D276007829F9 /* SelectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionItem.swift; sourceTree = "<group>"; };
+		6DF1C3702260E420007829F9 /* MViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +145,13 @@
 		6DA437762258F9FD003F8C8F /* noteBook */ = {
 			isa = PBXGroup;
 			children = (
+				6DA7DCE6225A3FC900683559 /* controllers */,
 				6DA437772258F9FD003F8C8F /* AppDelegate.swift */,
-				6DA437792258F9FD003F8C8F /* ViewController.swift */,
 				6DA4377B2258F9FD003F8C8F /* Main.storyboard */,
 				6DA437812258F9FE003F8C8F /* Assets.xcassets */,
 				6DA437832258F9FE003F8C8F /* LaunchScreen.storyboard */,
 				6DA437862258F9FE003F8C8F /* Info.plist */,
-				6DA4377E2258F9FD003F8C8F /* noteBook.xcdatamodeld */,
+				6D9FB799225E58F100E94199 /* noteBook.xcdatamodeld */,
 			);
 			path = noteBook;
 			sourceTree = "<group>";
@@ -128,6 +174,39 @@
 			path = noteBookUITests;
 			sourceTree = "<group>";
 		};
+		6DA7DCE6225A3FC900683559 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6DF1C3612260D19D007829F9 /* MultipleSelect */,
+				6D9FB792225E17E300E94199 /* KeyedDecodingContainer+extension.swift */,
+				6D30B3F322590D540029ECE2 /* AddNoteViewController.swift */,
+				6D30B3F522591CDE0029ECE2 /* AllNotesTableViewController.swift */,
+				6DA7DCE9225A406B00683559 /* NotesDetailsTableViewController.swift */,
+				6D726256225B8A95003137BA /* GuardianSearchController.swift */,
+				6D726258225B8B98003137BA /* GuardianContentClient.swift */,
+				6D726259225B8B98003137BA /* GuardianContentDataTypes.swift */,
+				6D726262225BB934003137BA /* ReturnedArticlesTableViewController.swift */,
+				6D8385A6225D03D200BC9FBF /* ResultsCellTableViewCell.swift */,
+				6D8385AA225D223E00BC9FBF /* SingleArticleTableViewController.swift */,
+				6D9FB794225E381E00E94199 /* SingleArticleTableViewCell.swift */,
+				6D9FB796225E4A9500E94199 /* RecentSearchesTableViewController.swift */,
+				6D9FB79C225E6BF800E94199 /* structClass.swift */,
+				6D351829225F6737004098D8 /* Pinger.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		6DF1C3612260D19D007829F9 /* MultipleSelect */ = {
+			isa = PBXGroup;
+			children = (
+				6DF1C3622260D1F1007829F9 /* DataChangedDelegate.swift */,
+				6DF1C3642260D245007829F9 /* SelectionDoneCancelViewController.swift */,
+				6DF1C3662260D276007829F9 /* SelectionItem.swift */,
+				6DF1C3702260E420007829F9 /* MViewController.swift */,
+			);
+			path = MultipleSelect;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,6 +217,7 @@
 				6DA437702258F9FC003F8C8F /* Sources */,
 				6DA437712258F9FC003F8C8F /* Frameworks */,
 				6DA437722258F9FC003F8C8F /* Resources */,
+				6D351879225FB01B004098D8 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -190,12 +270,17 @@
 		6DA4376C2258F9FC003F8C8F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					f,
+					"fs ",
+				);
 				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = rdm10;
 				TargetAttributes = {
 					6DA437732258F9FC003F8C8F = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 					};
 					6DA4378A2258F9FE003F8C8F = {
 						CreatedOnToolsVersion = 10.0;
@@ -259,9 +344,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6DA4377A2258F9FD003F8C8F /* ViewController.swift in Sources */,
+				6D35182A225F6737004098D8 /* Pinger.swift in Sources */,
+				6D726257225B8A95003137BA /* GuardianSearchController.swift in Sources */,
+				6D30B3F422590D540029ECE2 /* AddNoteViewController.swift in Sources */,
+				6D30B3F622591CDE0029ECE2 /* AllNotesTableViewController.swift in Sources */,
+				6D9FB79D225E6BF800E94199 /* structClass.swift in Sources */,
+				6D72625A225B8B98003137BA /* GuardianContentClient.swift in Sources */,
+				6D9FB79B225E58F100E94199 /* noteBook.xcdatamodeld in Sources */,
 				6DA437782258F9FD003F8C8F /* AppDelegate.swift in Sources */,
-				6DA437802258F9FD003F8C8F /* noteBook.xcdatamodeld in Sources */,
+				6DA7DCEA225A406B00683559 /* NotesDetailsTableViewController.swift in Sources */,
+				6D72625B225B8B98003137BA /* GuardianContentDataTypes.swift in Sources */,
+				6D726263225BB934003137BA /* ReturnedArticlesTableViewController.swift in Sources */,
+				6D8385A7225D03D200BC9FBF /* ResultsCellTableViewCell.swift in Sources */,
+				6DF1C3712260E420007829F9 /* MViewController.swift in Sources */,
+				6D8385AB225D223E00BC9FBF /* SingleArticleTableViewController.swift in Sources */,
+				6D9FB795225E381E00E94199 /* SingleArticleTableViewCell.swift in Sources */,
+				6D9FB797225E4A9500E94199 /* RecentSearchesTableViewController.swift in Sources */,
+				6D9FB793225E17E300E94199 /* KeyedDecodingContainer+extension.swift in Sources */,
+				6DF1C3632260D1F1007829F9 /* DataChangedDelegate.swift in Sources */,
+				6DF1C3672260D276007829F9 /* SelectionItem.swift in Sources */,
+				6DF1C3652260D245007829F9 /* SelectionDoneCancelViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +538,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = noteBook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -444,6 +547,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.aber.dcs.SEM2220.noteBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -453,6 +557,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = noteBook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -586,14 +691,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		6DA4377E2258F9FD003F8C8F /* noteBook.xcdatamodeld */ = {
+		6D9FB799225E58F100E94199 /* noteBook.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				6DA4377F2258F9FD003F8C8F /* noteBook.xcdatamodel */,
+				6D9FB79A225E58F100E94199 /* noteBook.xcdatamodel */,
 			);
-			currentVersion = 6DA4377F2258F9FD003F8C8F /* noteBook.xcdatamodel */;
+			currentVersion = 6D9FB79A225E58F100E94199 /* noteBook.xcdatamodel */;
 			path = noteBook.xcdatamodeld;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
