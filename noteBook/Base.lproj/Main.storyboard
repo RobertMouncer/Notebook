@@ -82,7 +82,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="uBA-oi-oFM" kind="show" id="E7y-Yq-iOM"/>
+                                    <segue destination="uBA-oi-oFM" kind="show" id="LcS-Kp-Gbk"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -93,6 +93,7 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="View Notes" id="RAg-XU-hXa"/>
                     <navigationItem key="navigationItem" id="pp1-OV-PTU">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="ztW-xE-ZOn"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="7Eo-NS-GfG">
                             <connections>
                                 <segue destination="kbM-Xx-m7g" kind="presentation" id="rub-J4-5Tc"/>
@@ -766,7 +767,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="SJ8-fd-GFV"/>
+        <segue reference="XPx-qc-crj"/>
         <segue reference="DO7-1c-gvH"/>
     </inferredMetricsTieBreakers>
 </document>
