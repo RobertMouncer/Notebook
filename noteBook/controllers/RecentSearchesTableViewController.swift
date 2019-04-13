@@ -82,6 +82,17 @@ class RecentSearchesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //TODO update dateOfSearch when a search is done from cache or from HTTP request.
+        fetchedResultsController?.object(at: indexPath).setValue(Date(), forKey: "dateOfSearch")
+        
+        do {
+            try self.managedContext?.save()
+        }
+        catch let error as NSError {
+            print("Error saving speaker item: \(error)")
+        }
+        
+        
+        
         let filters = GuardianContentFilters()
         filters.showElements = .all
         filters.pageSize = 50
@@ -143,6 +154,7 @@ class RecentSearchesTableViewController: UITableViewController {
         
     }
     
+    
     func loadContent(filters: GuardianContentFilters, searchTerm: String?,completionHandler: @escaping (Bool)->())  {
         do {
             if let term = searchTerm {
@@ -172,6 +184,11 @@ class RecentSearchesTableViewController: UITableViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewDidLoad()
+        
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

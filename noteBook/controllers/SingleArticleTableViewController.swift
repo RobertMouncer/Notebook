@@ -47,7 +47,6 @@ class SingleArticleTableViewController: UITableViewController, DataChangedDelega
         if let date = singleArticle?.lastModified {
             headings["lastModified"] = "\(date)"
         }
-        print(singleArticle?.wordCount ?? 0)
         if let count = singleArticle?.wordCount {
             if count > 0{
                 headings["wordcount"] = "\(count)"
@@ -137,22 +136,21 @@ class SingleArticleTableViewController: UITableViewController, DataChangedDelega
             print("No Notes returned")
             return
         }
-        
         let article = Article(entity: Article.entity(), insertInto: self.managedContext)
-        article.webTitle = singleArticle.webTitle
-        article.webUrl = singleArticle.webUrl
-        article.shortUrl = singleArticle.shortUrl
-        article.bodyText = singleArticle.bodyText
-        article.trailText = singleArticle.trailText
-        article.lastModified = singleArticle.lastModified
-        article.wordCount = singleArticle.wordCount
-        
-        
-        
+        article.webTitle = self.singleArticle.webTitle
+        article.webUrl = self.singleArticle.webUrl
+        article.shortUrl = self.singleArticle.shortUrl
+        article.bodyText = self.singleArticle.bodyText
+        article.trailText = self.singleArticle.trailText
+        article.lastModified = self.singleArticle.lastModified
+        article.wordCount = self.singleArticle.wordCount
+    
         for note in data {
+            print("added new")
             note.addToArticles(article)
             note.setValue(Date(), forKey: "lastModified")
         }
+  
 
         do {
             try self.managedContext?.save()
@@ -163,6 +161,7 @@ class SingleArticleTableViewController: UITableViewController, DataChangedDelega
         
     }
     
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
