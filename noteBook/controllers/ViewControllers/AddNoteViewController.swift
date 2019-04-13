@@ -13,6 +13,8 @@ class AddNotesViewController: UIViewController {
     
     @IBOutlet weak var notesTV: UITextView!
     @IBOutlet weak var titleTF: UITextField!
+    @IBOutlet var errorLabel: UILabel!
+    
     var managedContext: NSManagedObjectContext?
     var noteToEdit: Notes?
     
@@ -51,6 +53,11 @@ class AddNotesViewController: UIViewController {
     */
 
     @IBAction func saveNote(_ sender: UIBarButtonItem) {
+        let string = (titleTF.text)?.trimmingCharacters(in: .whitespaces)
+        if (string?.isEmpty)! {
+            errorLabel.isHidden = false
+            return
+        }
         if noteToEdit != nil {
             noteToEdit?.setValue(titleTF.text, forKey: "title")
             noteToEdit?.setValue(notesTV.text, forKey: "notes")

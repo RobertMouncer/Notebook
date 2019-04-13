@@ -84,7 +84,10 @@ class NotesDetailsTableViewController: UITableViewController {
         return true
     }
     
-
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int)
+        -> String? {
+            return "Article URL's"
+    }
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -103,6 +106,9 @@ class NotesDetailsTableViewController: UITableViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        viewDidLoad()
+    }
 
     /*
     // Override to support rearranging the table view.
