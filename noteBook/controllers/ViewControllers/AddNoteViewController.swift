@@ -14,7 +14,7 @@ class AddNotesViewController: UIViewController {
     @IBOutlet weak var notesTV: UITextView!
     @IBOutlet weak var titleTF: UITextField!
     var managedContext: NSManagedObjectContext?
-    
+    var noteToEdit: Notes?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,12 @@ class AddNotesViewController: UIViewController {
         notesTV.layer.borderColor = UIColor.gray.withAlphaComponent(0.5).cgColor
         notesTV.layer.borderWidth = 0.5
         notesTV.clipsToBounds = true
-        // Do any additional setup after loading the view.
+
+        if noteToEdit != nil {
+            titleTF.text = noteToEdit?.title
+            notesTV.text = noteToEdit?.notes
+        }
+        
     }
     
 
@@ -46,12 +51,17 @@ class AddNotesViewController: UIViewController {
     */
 
     @IBAction func saveNote(_ sender: UIBarButtonItem) {
-        let note = Notes(entity: Notes.entity(), insertInto: managedContext)
-        note.title = titleTF.text
-        note.notes = notesTV.text
-        note.lastModified = Date()
-        note.dateCreated = Date()
-        
+        if noteToEdit != nil {
+            noteToEdit?.setValue(titleTF.text, forKey: "title")
+            noteToEdit?.setValue(notesTV.text, forKey: "notes")
+            noteToEdit?.setValue(Date(), forKey: "lastModified")
+        }else {
+            let note = Notes(entity: Notes.entity(), insertInto: managedContext)
+            note.title = titleTF.text
+            note.notes = notesTV.text
+            note.lastModified = Date()
+            note.dateCreated = Date()
+        }
         
         do {
             try managedContext?.save()

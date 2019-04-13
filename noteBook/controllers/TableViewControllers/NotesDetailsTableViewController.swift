@@ -72,6 +72,9 @@ class NotesDetailsTableViewController: UITableViewController {
                        
             
         }
+        if let view = segue.destination as? AddNotesViewController{
+            view.noteToEdit = notesItem
+        }
     }
     
     
