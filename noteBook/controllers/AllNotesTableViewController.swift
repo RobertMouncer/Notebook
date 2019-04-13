@@ -30,7 +30,7 @@ class AllNotesTableViewController: UITableViewController {
         //from gitlab. Author - Neil Taylor
         let fetchRequest = NSFetchRequest<Notes>(entityName: "Notes")
 
-        let sortDescriptor = NSSortDescriptor(key: "title", ascending: true, selector: #selector(NSString.localizedCompare(_:)))
+        let sortDescriptor = NSSortDescriptor(key: "lastModified", ascending: false, selector: #selector(NSString.localizedCompare(_:)))
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedContext!, sectionNameKeyPath: nil, cacheName: nil)

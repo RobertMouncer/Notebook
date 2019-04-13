@@ -15,7 +15,9 @@ class SingleArticleTableViewController: UITableViewController, DataChangedDelega
     var articleResult: GuardianOpenPlatformResult!
     var headings = [String: String]()
     var order = ["webTitle","webUrl","trailText","shortUrl","lastModified","wordcount","bodyText"]
+    
     var managedContext: NSManagedObjectContext?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 68.0
@@ -45,7 +47,7 @@ class SingleArticleTableViewController: UITableViewController, DataChangedDelega
         if let date = singleArticle?.lastModified {
             headings["lastModified"] = "\(date)"
         }
-        print(singleArticle?.wordCount)
+        print(singleArticle?.wordCount ?? 0)
         if let count = singleArticle?.wordCount {
             if count > 0{
                 headings["wordcount"] = "\(count)"
@@ -145,8 +147,11 @@ class SingleArticleTableViewController: UITableViewController, DataChangedDelega
         article.lastModified = singleArticle.lastModified
         article.wordCount = singleArticle.wordCount
         
+        
+        
         for note in data {
             note.addToArticles(article)
+            note.setValue(Date(), forKey: "lastModified")
         }
 
         do {
