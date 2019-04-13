@@ -105,7 +105,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func someBackgroundTask(timer:Timer) {
         DispatchQueue.global(qos: DispatchQoS.background.qosClass).async {
             let yesterday = Date()//.addingTimeInterval(-86400)
-            print(yesterday)
             print("Checking context to remove outdated content")
             self.managedContext = self.persistentContainer.viewContext
             self.checkRecentSearch(yesterday: yesterday)
@@ -148,8 +147,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let searches = try self.managedContext?.fetch(fetchRequest)
             if searches?.count ?? 0 > 0 {
                 for item in searches! {
-                    print(item.wordCount)
-                    print(item.dateAssigned!)
                     if item.dateAssigned! < yesterday {
                         item.setValue(nil, forKey: "wordCount")
                         item.setValue(nil, forKey: "bodyText")

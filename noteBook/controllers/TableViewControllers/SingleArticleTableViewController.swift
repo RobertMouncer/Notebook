@@ -30,11 +30,7 @@ class SingleArticleTableViewController: UITableViewController, DataChangedDelega
         }
         
         managedContext = delegate.persistentContainer.viewContext
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     func removeHeadings(){
 
@@ -136,22 +132,51 @@ class SingleArticleTableViewController: UITableViewController, DataChangedDelega
             print("No Notes returned")
             return
         }
-        let article = Article(entity: Article.entity(), insertInto: self.managedContext)
-        article.webTitle = self.singleArticle.webTitle
-        article.webUrl = self.singleArticle.webUrl
-        article.shortUrl = self.singleArticle.shortUrl
-        article.bodyText = self.singleArticle.bodyText
-        article.trailText = self.singleArticle.trailText
-        article.lastModified = self.singleArticle.lastModified
-        article.wordCount = self.singleArticle.wordCount
-        article.dateAssigned = Date()
-        
-        for note in data {
-            print("added new")
-            note.addToArticles(article)
-            note.setValue(Date(), forKey: "lastModified")
+        let fetchRequest = NSFetchRequest<Article>(entityName: "Article")
+        var found = false
+        do {
+            //gets results - all articles
+            let results = try managedContext?.fetch(fetchRequest)
+            //checks to see if there are articles
+            if results?.count ?? 0 > 0 {
+                
+                for item in results! {
+                    //if the weburl already exists just make a connection
+                    // this is to prevent new article instances from being created.
+                    if item.webUrl! == singleArticle.webUrl! {
+                     found = true
+                        print(true)
+                        for note in data {
+                            print("added old")
+                            note.addToArticles(item)
+                            note.setValue(Date(), forKey: "lastModified")
+                        }
+                    }
+                }
+            }
+            
         }
-  
+        catch let error as NSError {
+            print("\(error)")
+        }
+        
+        if !found{
+            let article = Article(entity: Article.entity(), insertInto: self.managedContext)
+            article.webTitle = self.singleArticle.webTitle
+            article.webUrl = self.singleArticle.webUrl
+            article.shortUrl = self.singleArticle.shortUrl
+            article.bodyText = self.singleArticle.bodyText
+            article.trailText = self.singleArticle.trailText
+            article.lastModified = self.singleArticle.lastModified
+            article.wordCount = self.singleArticle.wordCount
+            article.dateAssigned = Date()
+            
+            for note in data {
+                print("added new")
+                note.addToArticles(article)
+                note.setValue(Date(), forKey: "lastModified")
+            }
+        }
 
         do {
             try self.managedContext?.save()

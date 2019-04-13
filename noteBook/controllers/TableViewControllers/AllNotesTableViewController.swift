@@ -40,7 +40,7 @@ class AllNotesTableViewController: UITableViewController,UISearchBarDelegate {
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedContext!, sectionNameKeyPath: nil, cacheName: nil)
         performFetchForController()
         filteredData = fetchedResultsController?.fetchedObjects
-
+        tableView.reloadData()
     }
     //from gitlab. Author - Neil Taylor
     func performFetchForController() {
