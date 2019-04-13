@@ -18,6 +18,7 @@ class NotesDetailsTableViewController: UITableViewController {
     
     @IBOutlet weak var notesTextView: UITextView!
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -104,6 +105,37 @@ class NotesDetailsTableViewController: UITableViewController {
             
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+    }
+    //http://swiftdeveloperblog.com/code-examples/create-uialertcontroller-with-ok-and-cancel-buttons-in-swift/
+    @IBAction func btnPressed(_ sender: Any) {
+        let alertController = UIAlertController(title: "Are you sure?", message: "What would you like to do?", preferredStyle: .alert)
+        
+        let deleteAction = UIAlertAction(title: "Delete Note", style: .destructive) { (action:UIAlertAction!) in
+            print("Delete button tapped");
+            self.deleteNote()
+            
+        }
+        alertController.addAction(deleteAction)
+    
+        // Create Cancel button
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction!) in
+            print("Cancel button tapped");
+        }
+        alertController.addAction(cancelAction)
+        
+        // Present Dialog message
+        self.present(alertController, animated: true, completion:nil)
+    
+    }
+    
+    func deleteNote(){
+        do{
+            self.managedContext?.delete(self.notesItem!)
+            try self.managedContext?.save()
+        } catch {
+            
+        }
+        _ = navigationController?.popViewController(animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {

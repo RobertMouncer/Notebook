@@ -105,10 +105,7 @@ class AllNotesTableViewController: UITableViewController,UISearchBarDelegate {
                 filteredData.append(item)
             }
         }
-        print(filteredData)
         tableView.reloadData()
     }
     
-    
-
 }
