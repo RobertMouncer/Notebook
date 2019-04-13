@@ -62,7 +62,6 @@ class RecentSearchesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        print("\(fetchedResultsController?.fetchedObjects?.count ?? 0)")
         return fetchedResultsController?.fetchedObjects?.count ?? 0
     }
 

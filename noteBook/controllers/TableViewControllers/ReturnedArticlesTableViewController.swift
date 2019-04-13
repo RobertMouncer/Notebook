@@ -123,8 +123,8 @@ class ReturnedArticlesTableViewController: UITableViewController {
             let indexPath = tableView.indexPathForSelectedRow {
             let art = data.response.results?[indexPath.row]
             view.articleResult = art
-            
-            let singArt = Article(context: managedContext!)
+            let entity = NSEntityDescription.entity(forEntityName: "Article", in: managedContext!)
+            let singArt = Article(entity: entity!, insertInto: nil)
             
             singArt.webTitle = art?.webTitle
             singArt.webUrl = (art?.webUrl)?.absoluteString
@@ -132,8 +132,7 @@ class ReturnedArticlesTableViewController: UITableViewController {
             singArt.shortUrl = (art?.fields?.shortUrl)?.absoluteString
             singArt.trailText = art?.fields?.trailText
             singArt.lastModified = art?.fields?.lastModified
-            print("\(art?.fields?.wordcount)")
-            print("\(data.response.results?[indexPath.row].fields?.wordcount)")
+            
             if ((art?.fields?.wordcount) != nil) {
                 let x = Int((art?.fields?.wordcount)!)
                 singArt.wordCount = (Int32(x))

@@ -144,7 +144,8 @@ class SingleArticleTableViewController: UITableViewController, DataChangedDelega
         article.trailText = self.singleArticle.trailText
         article.lastModified = self.singleArticle.lastModified
         article.wordCount = self.singleArticle.wordCount
-    
+        article.dateAssigned = Date()
+        
         for note in data {
             print("added new")
             note.addToArticles(article)
@@ -156,7 +157,7 @@ class SingleArticleTableViewController: UITableViewController, DataChangedDelega
             try self.managedContext?.save()
         }
         catch let error as NSError {
-            print("Error saving speaker item: \(error)")
+            print("Error saving note item: \(error)")
         }
         
     }

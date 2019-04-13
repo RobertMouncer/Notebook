@@ -161,6 +161,7 @@ class GuardianSearchController: UIViewController,UIPickerViewDelegate, UIPickerV
 
     }
     
+    
     func loadContent(filters: GuardianContentFilters, searchTerm: String?,completionHandler: @escaping (Error?, _ rawData: Data)->())  {
         do {
             if let term = searchTerm {
@@ -191,8 +192,6 @@ class GuardianSearchController: UIViewController,UIPickerViewDelegate, UIPickerV
     
     func saveToRecentSearches(filter: GuardianContentFilters, searchTerm: String, rawData: Data){
         let search = RecentSearch(entity:RecentSearch.entity(), insertInto: managedContext)
-
-        
         
         search.searchTerm = searchTerm
         search.dateOfSearch = Date()
@@ -246,6 +245,9 @@ class GuardianSearchController: UIViewController,UIPickerViewDelegate, UIPickerV
             view.data = self.data
         }
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewDidLoad()
+    }
     
 }

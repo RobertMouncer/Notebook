@@ -27,12 +27,10 @@ class MultipleSelectionTableViewController: SelectionDoneCancelViewController, U
     // MARK: - Table view data source
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        print(items.count)
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(items.count)
         return items.count
     }
     
@@ -53,7 +51,6 @@ class MultipleSelectionTableViewController: SelectionDoneCancelViewController, U
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Selecting item: \(indexPath)")
         items[indexPath.row].selected = !(items[indexPath.row].selected)
         tableView.reloadData()
     }

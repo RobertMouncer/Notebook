@@ -8,17 +8,20 @@
 
 import UIKit
 import CoreData
-
+import Foundation
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    var managedContext: NSManagedObjectContext?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         print(urls[urls.count-1] as URL)
+        
         return true
     }
 
@@ -55,6 +58,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
+        
+        var timer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) {
+            timer in
+            
+            self.someBackgroundTask(timer: timer)
+        }
+        
         let container = NSPersistentContainer(name: "noteBook")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
@@ -90,6 +100,74 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    //https://stackoverflow.com/a/29564713
+    func someBackgroundTask(timer:Timer) {
+        DispatchQueue.global(qos: DispatchQoS.background.qosClass).async {
+            let yesterday = Date()//.addingTimeInterval(-86400)
+            print(yesterday)
+            print("Checking context to remove outdated content")
+            self.managedContext = self.persistentContainer.viewContext
+            self.checkRecentSearch(yesterday: yesterday)
+            self.checkArticles(yesterday:yesterday)
+        }
+    }
+    
+    func checkRecentSearch(yesterday: Date){
+        let fetchRequest = NSFetchRequest<RecentSearch>(entityName: "RecentSearch")
+        do{
+            let searches = try self.managedContext?.fetch(fetchRequest)
+            if searches?.count ?? 0 > 0 {
+                for item in searches! {
+                    if item.dateOfSearch! < yesterday {
+                        if item.cacheKey != nil {
+                            
+                            let defaults = UserDefaults.standard
+                            defaults.removeObject(forKey: item.cacheKey!)
+                            item.setValue(nil, forKey: "cacheKey")
+                        }
+                        
+                    }
+                }
+                do{
+                    try self.managedContext?.save()
+                } catch {
+                    
+                }
+            }
+            
+        } catch let error as NSError{
+            print("\(error)")
+        }
 
+    }
+    //doesn't need to perform as many functions on the data (user defaults) so has been given its own function
+    func checkArticles(yesterday:Date){
+        let fetchRequest = NSFetchRequest<Article>(entityName: "Article")
+        do{
+            let searches = try self.managedContext?.fetch(fetchRequest)
+            if searches?.count ?? 0 > 0 {
+                for item in searches! {
+                    print(item.wordCount)
+                    print(item.dateAssigned!)
+                    if item.dateAssigned! < yesterday {
+                        item.setValue(nil, forKey: "wordCount")
+                        item.setValue(nil, forKey: "bodyText")
+                        item.setValue(nil, forKey: "shortUrl")
+                        item.setValue(nil, forKey: "trailText")
+                        item.setValue(nil, forKey: "lastModified")
+                    }
+                }
+                do{
+                    try self.managedContext?.save()
+                } catch {
+                    
+                }
+            }
+            
+        } catch let error as NSError{
+            print("\(error)")
+        }
+    }
 }
 
