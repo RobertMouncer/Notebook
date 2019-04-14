@@ -64,6 +64,7 @@ class GuardianSearchController: UIViewController,UIPickerViewDelegate, UIPickerV
             
         }
     }
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         pickerSelected = row
         
@@ -80,12 +81,6 @@ class GuardianSearchController: UIViewController,UIPickerViewDelegate, UIPickerV
         return orderByData[row]
     }
 
-    func showText(_ text: String) {
-        DispatchQueue.main.async {
-            self.textView.text = "\(text)"
-        }
-    }
-    
   
     @IBOutlet weak var recentHistory: UIButton!
     @IBOutlet weak var shortUrl: UISwitch!
@@ -215,19 +210,6 @@ class GuardianSearchController: UIViewController,UIPickerViewDelegate, UIPickerV
         let defaults = UserDefaults.standard
         defaults.set(rawData, forKey: cacheKey)
         
-       // let fullPath = getDocumentsDirectory().appendingPathComponent(cacheKey)
- 
-
-//        do {
-//            let data = try NSKeyedArchiver.archivedData(withRootObject: people, requiringSecureCoding: false)
-//            try data.write(to: fullPath)
-//
-//
-//            print("saved to disk")
-//        } catch {
-//            print("Couldn't write file")
-//        }
-
         do {
             try managedContext?.save()
             print("added cache")
@@ -236,12 +218,6 @@ class GuardianSearchController: UIViewController,UIPickerViewDelegate, UIPickerV
             print("error with \(error)")
         }
         
-    }
-    
-    //https://www.hackingwithswift.com/example-code/system/how-to-save-and-load-objects-with-nskeyedarchiver-and-nskeyedunarchiver
-    func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
