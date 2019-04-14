@@ -701,6 +701,7 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aCo-eB-tbL">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                                    <color key="backgroundColor" white="0.81086309527142852" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" title="Edit Title and/or Note"/>
                                     <connections>
                                         <segue destination="kbM-Xx-m7g" kind="show" id="Vui-b9-bgF"/>
@@ -708,20 +709,21 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcz-dx-xcr">
                                     <rect key="frame" x="0.0" y="56" width="375" height="30"/>
+                                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="AnG-qR-iKn"/>
                                     </constraints>
                                     <state key="normal" title="Delete">
-                                        <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="titleShadowColor" red="1" green="0.0" blue="0.0" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                     </state>
                                     <connections>
                                         <action selector="btnPressed:" destination="uBA-oi-oFM" eventType="touchUpInside" id="Jgb-2y-R6s"/>
                                     </connections>
                                 </button>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Title" translatesAutoresizingMaskIntoConstraints="NO" id="drM-eP-zXk">
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" editable="NO" text="Title" translatesAutoresizingMaskIntoConstraints="NO" id="drM-eP-zXk">
                                     <rect key="frame" x="0.0" y="112" width="375" height="50"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="7p9-Gc-OnF"/>
                                     </constraints>
@@ -730,7 +732,7 @@
                                 </textView>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Notes" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Imb-2N-hR5">
                                     <rect key="frame" x="0.0" y="188" width="375" height="116"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="116" id="fTG-yT-o2x"/>
                                     </constraints>
@@ -787,7 +789,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Vui-b9-bgF"/>
-        <segue reference="SJ8-fd-GFV"/>
+        <segue reference="XPx-qc-crj"/>
         <segue reference="6zJ-7r-3Yn"/>
     </inferredMetricsTieBreakers>
 </document>
