@@ -174,8 +174,8 @@ struct GuardianOpenPlatformResult: Codable {
      Creates a new instance by decoding from the given decoder.
      
      - Note:
-        - The required keyword is used to indicate that any subclasses must
-          implement this interface.
+     - The required keyword is used to indicate that any subclasses must
+     implement this interface.
      */
     init(from decoder: Decoder) throws {
         
@@ -187,8 +187,8 @@ struct GuardianOpenPlatformResult: Codable {
         sectionName = try values.decodeIfPresent(String.self, forKey: .sectionName)
         
         if let webPublicationDateString = try values.decodeIfPresent(String.self, forKey: .webPublicationDate) {
-           let formatter = ISO8601DateFormatter()
-           webPublicationDate = formatter.date(from: webPublicationDateString)!
+            let formatter = ISO8601DateFormatter()
+            webPublicationDate = formatter.date(from: webPublicationDateString)!
         }
         
         webTitle = try values.decode(String.self, forKey: .webTitle)
@@ -272,7 +272,7 @@ class GuardianContentTagFilters {
      settings with values, they will be separated by the `&` character.
      
      - Returns: A string of the format: `<filter-name>=<filter-value>&<filter-name>=<filter-value>`.
-       If no filter values have been specified, the result will be an empty string.
+     If no filter values have been specified, the result will be an empty string.
      */
     func queryParameters() -> String {
         var result = [String]()

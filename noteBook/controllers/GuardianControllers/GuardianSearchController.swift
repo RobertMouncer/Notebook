@@ -175,7 +175,9 @@ class GuardianSearchController: UIViewController,UIPickerViewDelegate, UIPickerV
                     }
                     else {
                         print("problem accessing the data")
-                        self.recentHistory.titleLabel?.text = "Use Cached responses"
+                        DispatchQueue.main.async {
+                            self.recentHistory.titleLabel?.text = "Use Cached responses"
+                        }
                         completionHandler(nil,rawdata)
                     }
                 }
@@ -183,7 +185,9 @@ class GuardianSearchController: UIViewController,UIPickerViewDelegate, UIPickerV
         }
         catch let error {
             print("Error in load content: \(error)")
-            self.recentHistory.titleLabel?.text = "Use Cached responses"
+            DispatchQueue.main.async {
+                self.recentHistory.titleLabel?.text = "Use Cached responses"
+            }
             let d: Data? = "".data(using: .utf8)
             completionHandler(error,d!)
         }

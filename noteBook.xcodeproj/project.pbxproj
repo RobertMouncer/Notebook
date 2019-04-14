@@ -10,11 +10,11 @@
 		6D30B3F422590D540029ECE2 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D30B3F322590D540029ECE2 /* AddNoteViewController.swift */; };
 		6D30B3F622591CDE0029ECE2 /* AllNotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D30B3F522591CDE0029ECE2 /* AllNotesTableViewController.swift */; };
 		6D35182A225F6737004098D8 /* Pinger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D351829225F6737004098D8 /* Pinger.swift */; };
+		6D407ED32263800700577A3B /* KeyedDecodingContainer+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D407ED22263800700577A3B /* KeyedDecodingContainer+extension.swift */; };
+		6D407ED52263803300577A3B /* GuardianContentClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D407ED42263803300577A3B /* GuardianContentClient.swift */; };
+		6D407ED72263804F00577A3B /* GuardianContentDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D407ED62263804F00577A3B /* GuardianContentDataTypes.swift */; };
 		6D726257225B8A95003137BA /* GuardianSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D726256225B8A95003137BA /* GuardianSearchController.swift */; };
 		6D726263225BB934003137BA /* ReturnedArticlesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D726262225BB934003137BA /* ReturnedArticlesTableViewController.swift */; };
-		6D78FBA622624F520088F32A /* GuardianContentDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D78FBA122624E400088F32A /* GuardianContentDataTypes.swift */; };
-		6D78FBA722624F520088F32A /* GuardianContentClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D78FBA022624E400088F32A /* GuardianContentClient.swift */; };
-		6D78FBA822624F520088F32A /* KeyedDecodingContainer+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D78FBA522624F520088F32A /* KeyedDecodingContainer+extension.swift */; };
 		6D8385A7225D03D200BC9FBF /* ResultsCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8385A6225D03D200BC9FBF /* ResultsCellTableViewCell.swift */; };
 		6D8385AB225D223E00BC9FBF /* SingleArticleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8385AA225D223E00BC9FBF /* SingleArticleTableViewController.swift */; };
 		6D9FB795225E381E00E94199 /* SingleArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9FB794225E381E00E94199 /* SingleArticleTableViewCell.swift */; };
@@ -66,12 +66,12 @@
 		6D30B3F322590D540029ECE2 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 		6D30B3F522591CDE0029ECE2 /* AllNotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNotesTableViewController.swift; sourceTree = "<group>"; };
 		6D351829225F6737004098D8 /* Pinger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pinger.swift; sourceTree = "<group>"; };
+		6D407ED22263800700577A3B /* KeyedDecodingContainer+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyedDecodingContainer+extension.swift"; sourceTree = "<group>"; };
+		6D407ED42263803300577A3B /* GuardianContentClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuardianContentClient.swift; sourceTree = "<group>"; };
+		6D407ED62263804F00577A3B /* GuardianContentDataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuardianContentDataTypes.swift; sourceTree = "<group>"; };
 		6D726256225B8A95003137BA /* GuardianSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuardianSearchController.swift; sourceTree = "<group>"; };
 		6D726262225BB934003137BA /* ReturnedArticlesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnedArticlesTableViewController.swift; sourceTree = "<group>"; };
 		6D78FB9F22624E1C0088F32A /* KeyedDecodingContainer+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "KeyedDecodingContainer+extension.swift"; path = "../../../../../Downloads/gdn-open-platform-api-master-24f94311e801b61c1139fe598c284d5f20073930/GuardianOpenPlatformExample/KeyedDecodingContainer+extension.swift"; sourceTree = "<group>"; };
-		6D78FBA022624E400088F32A /* GuardianContentClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuardianContentClient.swift; sourceTree = "<group>"; };
-		6D78FBA122624E400088F32A /* GuardianContentDataTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuardianContentDataTypes.swift; sourceTree = "<group>"; };
-		6D78FBA522624F520088F32A /* KeyedDecodingContainer+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyedDecodingContainer+extension.swift"; sourceTree = "<group>"; };
 		6D8385A6225D03D200BC9FBF /* ResultsCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsCellTableViewCell.swift; sourceTree = "<group>"; };
 		6D8385AA225D223E00BC9FBF /* SingleArticleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleArticleTableViewController.swift; sourceTree = "<group>"; };
 		6D9FB794225E381E00E94199 /* SingleArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleArticleTableViewCell.swift; sourceTree = "<group>"; };
@@ -204,13 +204,13 @@
 				6D78FB9B22624DC50088F32A /* Classes */,
 				6DA7DCE6225A3FC900683559 /* controllers */,
 				6DA4377B2258F9FD003F8C8F /* Main.storyboard */,
-				6D78FBA522624F520088F32A /* KeyedDecodingContainer+extension.swift */,
-				6D78FBA022624E400088F32A /* GuardianContentClient.swift */,
-				6D78FBA122624E400088F32A /* GuardianContentDataTypes.swift */,
 				6DA437812258F9FE003F8C8F /* Assets.xcassets */,
 				6DA437832258F9FE003F8C8F /* LaunchScreen.storyboard */,
 				6DA437862258F9FE003F8C8F /* Info.plist */,
 				6D9FB799225E58F100E94199 /* noteBook.xcdatamodeld */,
+				6D407ED22263800700577A3B /* KeyedDecodingContainer+extension.swift */,
+				6D407ED42263803300577A3B /* GuardianContentClient.swift */,
+				6D407ED62263804F00577A3B /* GuardianContentDataTypes.swift */,
 			);
 			path = noteBook;
 			sourceTree = "<group>";
@@ -391,14 +391,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D407ED72263804F00577A3B /* GuardianContentDataTypes.swift in Sources */,
+				6D407ED52263803300577A3B /* GuardianContentClient.swift in Sources */,
 				6D35182A225F6737004098D8 /* Pinger.swift in Sources */,
 				6D726257225B8A95003137BA /* GuardianSearchController.swift in Sources */,
 				6D30B3F422590D540029ECE2 /* AddNoteViewController.swift in Sources */,
 				6D30B3F622591CDE0029ECE2 /* AllNotesTableViewController.swift in Sources */,
 				6D9FB79D225E6BF800E94199 /* structClass.swift in Sources */,
-				6D78FBA722624F520088F32A /* GuardianContentClient.swift in Sources */,
-				6D78FBA622624F520088F32A /* GuardianContentDataTypes.swift in Sources */,
-				6D78FBA822624F520088F32A /* KeyedDecodingContainer+extension.swift in Sources */,
+				6D407ED32263800700577A3B /* KeyedDecodingContainer+extension.swift in Sources */,
 				6D9FB79B225E58F100E94199 /* noteBook.xcdatamodeld in Sources */,
 				6DA437782258F9FD003F8C8F /* AppDelegate.swift in Sources */,
 				6DA7DCEA225A406B00683559 /* NotesDetailsTableViewController.swift in Sources */,

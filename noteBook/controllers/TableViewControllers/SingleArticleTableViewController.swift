@@ -145,7 +145,13 @@ class SingleArticleTableViewController: UITableViewController, DataChangedDelega
                     // this is to prevent new article instances from being created.
                     if item.webUrl! == singleArticle.webUrl! {
                      found = true
-                        print(true)
+                        item.setValue(singleArticle.webTitle, forKey: "webTitle")
+                        item.setValue(singleArticle.shortUrl, forKey: "shortUrl")
+                        item.setValue(singleArticle.bodyText, forKey: "bodyText")
+                        item.setValue(singleArticle.trailText, forKey: "trailText")
+                        item.setValue(singleArticle.lastModified, forKey: "lastModified")
+                        item.setValue(singleArticle.wordCount, forKey: "wordCount")
+                        
                         for note in data {
                             print("added old")
                             note.addToArticles(item)

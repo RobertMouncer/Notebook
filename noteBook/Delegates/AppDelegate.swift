@@ -104,7 +104,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //https://stackoverflow.com/a/29564713
     func someBackgroundTask(timer:Timer) {
         DispatchQueue.global(qos: DispatchQoS.background.qosClass).async {
-            let yesterday = Date()//.addingTimeInterval(-86400)
+            let hoursInADay = -86400
+            let yesterday = Date().addingTimeInterval(TimeInterval(hoursInADay))
             print("Checking context to remove outdated content")
             self.managedContext = self.persistentContainer.viewContext
             self.checkRecentSearch(yesterday: yesterday)

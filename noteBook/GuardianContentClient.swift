@@ -9,7 +9,7 @@
 import Foundation
 
 class GuardianContentClient {
-
+    
     var apiKey: String = "cb9a43af-3974-482a-8399-1ce3b9af475e"
     
     var verbose: Bool
@@ -63,13 +63,13 @@ class GuardianContentClient {
                          withCallback callback: @escaping (_ data: GuardianOpenPlatformData?, _ downloadedData: Data) -> Void) throws  {
         
         guard let value = urlString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed),
-              let url = URL(string: value) else {
+            let url = URL(string: value) else {
                 
-            if verbose {
-                print("Invalid URL has been specified: \(urlString)")
-            }
+                if verbose {
+                    print("Invalid URL has been specified: \(urlString)")
+                }
                 
-            throw GuardianContentClientError.InvalidUrl
+                throw GuardianContentClientError.InvalidUrl
         }
         
         let task = session.dataTask(with: url) {
@@ -79,8 +79,8 @@ class GuardianContentClient {
                 
                 if self.verbose {
                     let text = "Completed with response: \(String(describing: response))" +
-                               "\ndata length: \(downloadedData.count)" +
-                               "\nerror: \(String(describing: error))"
+                        "\ndata length: \(downloadedData.count)" +
+                    "\nerror: \(String(describing: error))"
                     print(text)
                     
                     //print(String(describing: data))
